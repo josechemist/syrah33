@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculo de Massa Molar e FM</title>
+    <link rel="stylesheet" href="pq1.css">
+</head>
+<header>
+  <h2> Calcule Massa Molar e a Fórmula da Substância</h2>
+  <!--<h4> H<sub>2</sub></h4>-->
+  <table border="2"  class="res"   id="res">
+    <td><div  id="res">Verifique o Resultado Aqui! </div>
+    </td>
+    </table>
+  </header>
+<a  href="./index.html">ProjetoQuímica1</a>
+<section>
+        <div> 
+        <table border="1"> 
+         <td> <!--Inicio do limite da Tab-->
+    Massa do 1° Átomo: <input type="number"   name="massa1"  id="massa1">
+    <br>Índice do 1° Átomo: <input type="number"    name="ind1" id="ind1">
+    <br><br>O Símbolo do 1° Átomo:<input type="text" id="simb1">
+         </td>
+        
+        </table>    
+   </div>
+   <div>   
+      <table border="1">
+         <td> 
+    Massa do 2° Átomo: <input type="number" name="massa2"  id="massa2">
+    <br>Índice do 2° Átomo: <input type="number" name="ind2" id="ind2">
+    <br><br>O Símbolo do 2° Átomo:<input type="text" id="simb2"> 
+         </td>
+      </table>
+    </div>
+    <div>
+       <table border="1">
+         <td>
+    Massa do 3° Átomo: <input type="number" name="massa3"  id="massa3">
+    <br>Índice do 3° Átomo: <input type="number" name="ind3" id="ind3">
+    <br><br>O Símbolo do 3° Átomo:<input type="text" id="simb3"> 
+         </td>
+        </table>
+    </div>
+    <div>
+        <table id="res"  border="2">
+            <td>
+                <input type="button" value="Resultado"  onclick="fMol()" >
+            </td>
+        </table>
+    </div>
+    
+</section>
+
+<body>
+  <script src="pq1.js">
+
+function fMol( ) {
+let massa1 =window.document.getElementById('massa1')
+let ind1=window.document.querySelector('input#ind1')
+let simb1=window.document.querySelector('input#simb1')
+let massa2 =window.document.getElementById('massa2')
+let ind2=window.document.querySelector('input#ind2')
+let simb2=window.document.querySelector('input#simb2')                                                                                                            
+let massa3 =window.document.getElementById('massa3')
+let ind3=window.document.querySelector('input#ind3')                                        
+let simb3=window.document.querySelector('input#simb3')
+let res=window.document.querySelector('div#res')
+let m1= Number(massa1.value)
+let i1=Number(ind1.value)
+let m2= Number(massa2.value)
+let i2=Number(ind2.value)
+let m3= Number(massa3.value)
+let i3=Number(ind3.value)
+let pesoMol = (m1*i1)+(m2*i2)+(m3*i3)
+let s1= String(simb1.value)
+let s2= String(simb2.value)
+let s3= String(simb3.value)
+const forSub= s1+i1+s2+i2+s3+i3
+res.innerHTML= `O Peso Molar da Substância é : ${pesoMol} U.`
+    if(i2==0 && i3==0){
+    res.innerHTML+=`<p>A fórmula é : ${s1}<sub>${i1}</sub></p>`
+    
+    }else if(i3==0){
+    res.innerHTML+=`<p>A fórmula é : ${s1}<sub>${i1}</sub>${s2}<sub>${i2}</sub></p>`
+
+    }else{
+   res.innerHTML+=`<p>A fórmula é : ${s1}<sub>${i1}</sub>${s2}<sub>${i2}</sub>${s3}<sub>${i3}</sub></p>`
+    
+    }
+}
+  </script> 
+</body>
+</html>
